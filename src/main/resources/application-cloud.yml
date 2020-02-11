@@ -1,0 +1,39 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: employee-details
+          content-type: application/*+avro
+          consumer:
+            useNativeDecoding: true
+        output:
+          destination: employee-details
+          content-type: application/*+avro
+          producer:
+            useNativeEncoding: true
+      kafka:
+        binder:
+          brokers: pkc-43n10.us-central1.gcp.confluent.cloud:9092
+          replication-factor: 3
+          configuration:
+            ssl.endpoint.identification.algorithm: https
+            sasl.mechanism: PLAIN
+            request.timeout.ms: 20000
+            retry.backoff.ms: 500
+            security.protocol: SASL_SSL
+            sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="WUND7P5RYVYAGOF2" password="iZEWUfWTSz080W3a3iG933/2e6Jf5tbbdkC/tzfSHTAngEtibJYh92MX3V6zyl2g";
+          producer-properties:
+            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry.url: https://psrc-lz3xz.us-central1.gcp.confluent.cloud
+          consumer-properties:
+            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            schema.registry.url: https://psrc-lz3xz.us-central1.gcp.confluent.cloud
+            specific.avro.reader: true
+  kafka:
+    properties:
+      schema.registry.url: https://psrc-lz3xz.us-central1.gcp.confluent.cloud
+      basic.auth.credentials.source: USER_INFO
+      schema.registry.basic.auth.user.info: 5QULSQKQSFOMHYPB:zoZM85h8QqHF/kpuvDFrUW+fg0jyT6jAp+zKtdHMFLSWBYRo6hwxOPz2JIEILCC7
