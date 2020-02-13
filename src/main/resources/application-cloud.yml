@@ -4,12 +4,12 @@ spring:
       bindings:
         input:
           destination: employee-details
-          content-type: application/*+avro
+#          content-type: application/*+avro
           consumer:
             useNativeDecoding: true
         output:
           destination: employee-details
-          content-type: application/*+avro
+#          content-type: application/*+avro
           producer:
             useNativeEncoding: true
       kafka:
