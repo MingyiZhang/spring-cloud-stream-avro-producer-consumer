@@ -22,4 +22,4 @@ A minimum configurations for connecting to Confluent Cloud Kafka Cluster.
     ```shell script
     curl -X POST localhost:8080/employees/1001/Harry/Potter
     ```
-   You will see the key and value printed in the log.
+   The key and value will be printed in the log.
