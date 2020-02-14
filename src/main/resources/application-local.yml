@@ -9,10 +9,8 @@ spring:
       bindings:
         input:
           destination: employee-details
-#          content-type: application/*+avro
         output:
           destination: employee-details
-#          content-type: application/*+avro
       kafka:
         binder:
           brokers: http://localhost:9092

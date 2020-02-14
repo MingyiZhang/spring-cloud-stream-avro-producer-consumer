@@ -20,7 +20,7 @@ public class AvroProducer {
         .setFirstName(firstName)
         .setLastName(lastName)
         .build();
-    Message<Employee> message = MessageBuilder.withPayload(employee).setHeader(KafkaHeaders.MESSAGE_KEY, firstName).build();
+    Message<Employee> message = MessageBuilder.withPayload(employee).setHeader(KafkaHeaders.MESSAGE_KEY, employee).build();
     processor.output().send(message);
   }
 }

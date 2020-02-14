@@ -16,7 +16,7 @@ public class AvroConsumer {
   @StreamListener(Processor.INPUT)
   public void consumeEmployeeDetails(
       @Payload Employee employeeDetails,
-      @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) String employeeKey
+      @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) Employee employeeKey
   ) {
     log.info("Let's process employee details: {}", employeeDetails);
     log.info("employee key: {}", employeeKey);
